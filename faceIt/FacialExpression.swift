@@ -2,9 +2,11 @@
 //  FacialExpression.swift
 //  FaceIt
 //
-//  Created by Michel Deiman on 28/02/2017.
-//  Copyright © 2017 Michel Deiman. All rights reserved.
 //
+//  Created by 张经纬 on 2018/6/27.
+//  Copyright © 2018 Jingwei Zhang. All rights reserved.
+//
+
 
 import Foundation
 

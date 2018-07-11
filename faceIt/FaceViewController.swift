@@ -2,21 +2,24 @@
 //  ViewController.swift
 //  FaceIt
 //
-//  Created by Michel Deiman on 27/02/2017.
-//  Copyright © 2017 Michel Deiman. All rights reserved.
+//  Created by 张经纬 on 2018/6/27.
+//  Copyright © 2018 Jingwei Zhang. All rights reserved.
 //
+
 
 import UIKit
 
+@objcMembers
 class FaceViewController: VCLLoggingViewController {
 
+    
     @IBOutlet weak var faceView: FaceView! {
         didSet {
-            let handler = #selector(FaceView.changeScale(byReactingTo:))
-            let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: handler)
+            
+            let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: #selector(FaceView.changeScale(byReactingTo:)))
             faceView.addGestureRecognizer(pinchRecognizer)
             let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
-            tapRecognizer.numberOfTapsRequired = 1
+            tapRecognizer.numberOfTapsRequired  = 1
             faceView.addGestureRecognizer(tapRecognizer)
             let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(increaseHappiness))
             swipeUpRecognizer.direction = .up
@@ -24,7 +27,32 @@ class FaceViewController: VCLLoggingViewController {
             let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(decreaseHappiness))
             swipeDownRecognizer.direction = .down
             faceView.addGestureRecognizer(swipeDownRecognizer)
+            
+            let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeColor))
+            doubleTapRecognizer.numberOfTouchesRequired = 2;
+            doubleTapRecognizer.numberOfTapsRequired = 1;
+            faceView.addGestureRecognizer(doubleTapRecognizer);
+            
+            
+            
             updateUI()      // called only ones, when iOS hooks up this faceView
+        }
+    }
+    
+    var colorChange = 0;
+    func changeColor()  {
+        colorChange += 1;
+        switch colorChange%4 {
+        case 0:
+            faceView.color = UIColor.blue;
+        case 1:
+            faceView.color = UIColor.black;
+        case 2:
+            faceView.color = UIColor.yellow;
+        case 3:
+            faceView.color = UIColor.red;
+        default:
+            faceView.color = UIColor.blue;
         }
     }
     

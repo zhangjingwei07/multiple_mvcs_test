@@ -2,12 +2,14 @@
 //  FaceView.swift
 //  FaceIt
 //
-//  Created by Michel Deiman on 27/02/2017.
-//  Copyright © 2017 Michel Deiman. All rights reserved.
+//  Created by 张经纬 on 2018/6/27.
+//  Copyright © 2018 Jingwei Zhang. All rights reserved.
 //
+
 
 import UIKit
 
+@objcMembers
 @IBDesignable
 class FaceView: UIView {
     
@@ -18,6 +20,10 @@ class FaceView: UIView {
     @IBInspectable var lineWidth: CGFloat = 5.0  {  didSet { setNeedsDisplay() } }
     @IBInspectable var color: UIColor = UIColor.blue     {  didSet { setNeedsDisplay() } }
 
+    
+    
+    // // ////////////////////////////////////////////////////////////////////////////////////////
+    // function to handle zoom in and out
     func changeScale(byReactingTo pinchRecognizer: UIPinchGestureRecognizer)
     {
         switch pinchRecognizer.state {

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  faceIt
 //
-//  Created by 张经纬 on 2018/7/11.
+//  Created by Jingwei Zhang on 2018/7/11.
 //  Copyright © 2018 Jingwei Zhang. All rights reserved.
 //
 
